@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+
+    <groupId>org.brightasu</groupId>
+    <artifactId>moonrpc</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>moonrpc-remote</module>
+        <module>moonrpc-codec</module>
+        <module>moonrpc-web</module>
+        <module>moonrpc-consumer</module>
+        <module>moonrpc-producer</module>
+    </modules>
+
+    <properties>
+    </properties>
+
+    <dependencyManagement>
+
+    </dependencyManagement>
+
+    <dependencies>
+
+    </dependencies>
+
+    <!--<distributionManagement>-->
+        <!--<snapshotRepository>-->
+            <!--<id>zhifu-snapshots</id>-->
+            <!--<uniqueVersion>false</uniqueVersion>-->
+            <!--<name>JDB Snapshots</name>-->
+            <!--<url>${jdb.nexus.snapshots}</url>-->
+        <!--</snapshotRepository>-->
+        <!--<repository>-->
+            <!--<id>jdb_releases</id>-->
+            <!--<name>JDB Releases</name>-->
+            <!--<url>${jdb.nexus.releases}</url>-->
+        <!--</repository>-->
+
+    <!--</distributionManagement>-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                    <finalName>${project.artifactId}</finalName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/env.properties</include>
+                    <include>**/biz.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*.xml</include>
+                    <include>*.dat</include>
+                    <include>**/*.xml</include>
+                    <include>**/**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.Filter</include>
+                    <include>**/**/**/*.cer</include>
+                    <include>**/**/**/*.key</include>
+                    <include>**/**/**/*.pfx</include>
+                    <include>**/**/**/*.pvk</include>
+                    <include>**/**/**/*.puk</include>
+                    <include>**/**/**/*.private</include>
+                    <include>**/**/**/*.public</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.Filter</include>
+                    <include>**/**/**/*.cer</include>
+                    <include>**/**/**/*.key</include>
+                    <include>**/**/**/*.pfx</include>
+                    <include>*.dat</include>
+                </includes>
+            </testResource>
+        </testResources>
+    </build>
+    <profiles>
+        <profile>
+            <id>local</id>
+            <!-- 默认激活开发配制，使用local.properties来替换设置过虑的资源文件中的${key} -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <app.env>local</app.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <app.env>test</app.env>
+            </properties>
+        </profile>
+    </profiles>
+</project>
