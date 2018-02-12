@@ -17,6 +17,7 @@
         <module>moonrpc-web</module>
         <module>moonrpc-consumer</module>
         <module>moonrpc-producer</module>
+        <module>moonrpc-biz</module>
     </modules>
 
     <properties>
