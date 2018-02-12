@@ -31,21 +31,6 @@
 
     </dependencies>
 
-    <!--<distributionManagement>-->
-        <!--<snapshotRepository>-->
-            <!--<id>zhifu-snapshots</id>-->
-            <!--<uniqueVersion>false</uniqueVersion>-->
-            <!--<name>JDB Snapshots</name>-->
-            <!--<url>${jdb.nexus.snapshots}</url>-->
-        <!--</snapshotRepository>-->
-        <!--<repository>-->
-            <!--<id>jdb_releases</id>-->
-            <!--<name>JDB Releases</name>-->
-            <!--<url>${jdb.nexus.releases}</url>-->
-        <!--</repository>-->
-
-    <!--</distributionManagement>-->
-
     <build>
         <plugins>
             <plugin>

@@ -10,11 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * 动态bean操作Helper，持有ApplicationContext
- * <p>
- * Created by darbean on 07/04/2017.
+ * 动态bean操作，持有 ApplicationContext
  */
-
 public class ApplicationHelper implements ApplicationContextAware {
 
     private static ApplicationContext context;

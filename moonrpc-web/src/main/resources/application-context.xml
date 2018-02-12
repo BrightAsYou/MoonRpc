@@ -6,22 +6,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--<bean class="com.jiupai.cornerstone.web.config.CornerstonePlaceHolder">-->
-        <!--<property name="fileEncoding" value="UTF-8"/>-->
-        <!--<property name="locations">-->
-            <!--<list>-->
-                <!--<value>classpath:biz.properties</value>-->
-            <!--</list>-->
-        <!--</property>-->
-        <!--<property name="props">-->
-            <!--<map>-->
-                <!--<entry key="jdbc.password">-->
-                    <!--<value>com.jiupai.cornerstone.util.AESUtil.decrypt(${jdbc.password}, ${jdbc.password.secret})</value>-->
-                <!--</entry>-->
-            <!--</map>-->
-        <!--</property>-->
-        <!--<property name="externalConfig" value="${nasdaq.externalConfig}"/>-->
-    <!--</bean>-->
 
     <aop:aspectj-autoproxy proxy-target-class="true" />
     <context:annotation-config/>
